@@ -47,6 +47,7 @@ For this part of the exercise, using Component Resource is _NOT_ required.
 
 ### Resources ###
 
+* Pulumi [examples](https://github.com/pulumi/examples)
 * [taggable.ts](https://github.com/joeduffy/aws-tags-example/blob/master/autotag-ts/taggable.ts) and [autotag.ts](https://github.com/joeduffy/aws-tags-example/blob/master/autotag-ts/autotag.ts)
 
 ### Answers ###
