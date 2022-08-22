@@ -9,13 +9,13 @@ For a better learning experience, you way want to start with your wn code from t
 
 ## Content ##
 
-0. Create an `exercise` folder and switch to it
+1. Switch to the `exercise` folder, create a new stack and install the node modules (`npm install`)
 1. Create 2 folders named `network` and `app`
 
 ### The `network` project ###
 
-1. Switch to the `network` folder
-2. Disable all default providers
+1. Switch to the `network` folder, create a new stack and install the node modules (`npm install`)
+2. Disable all [default providers](https://www.pulumi.com/blog/disable-default-providers/)
 3. Deploy a fully functional VPC in 2 or more configurable AWS regions (Component Resource)
    * Leverage `pulumi config set`
 4. Programmatically apply tags to your resources so it's easy to create an AWS Budget later on

@@ -7,7 +7,6 @@ interface VpcArgs {
     ownerEmail: pulumi.Input<string>,
     cidrBlock: pulumi.Input<string>,
     subnetMask: pulumi.Input<string>,
-    subnetCount: Number,
     availabilityZone: pulumi.Input<string>,
 }
 
@@ -30,7 +29,7 @@ export class Vpc extends pulumi.ComponentResource {
 
 
         const vpc = new aws.ec2.Vpc( `${this.name}-vpc`, {
-            cidrBlock: this.args.cidrBlock,
+            cidrBlock: ,                                            /* FIXME */
             instanceTenancy: "default",
             enableDnsHostnames: true,
             enableDnsSupport: true,
@@ -39,44 +38,41 @@ export class Vpc extends pulumi.ComponentResource {
         });
 
         const igw = new aws.ec2.InternetGateway(`${this.name}-igw`, {
-            vpcId: vpc.id,
+            vpcId: ,                                                /* FIXME */
         },{
-            parent: vpc
+            parent:                                                 /* FIXME */
         });
 
         const routeTable = new aws.ec2.RouteTable(`${this.name}-rt`, {
-            vpcId: vpc.id,
+            vpcId: ,                                                /* FIXME */
             routes: [{
                 cidrBlock: '0.0.0.0/0',
-                gatewayId: igw.id
+                gatewayId:                                          /* FIXME */
             }],
             }, {
-                parent: vpc
+                parent:                                             /* FIXME */
         });
 
         const subnetCidrBlock = `${subnetCidr.base}/${subnetCidr.bitmask}`;
 
         const pubSubnet = new aws.ec2.Subnet(`${this.name}-subnet`, {
-            vpcId: vpc.id,
-            cidrBlock: subnetCidrBlock,
+                                                                    /* FIXME */
             assignIpv6AddressOnCreation: false,
             mapPublicIpOnLaunch: true,
             availabilityZone: this.args.availabilityZone,
         }, {
-            parent: vpc
+            parent:                                                 /* FIXME */
         });
 
-        this.subnetId = pubSubnet.id;
+        this.subnetId = ;                                           /* FIXME */
 
         const routeTableAssoc = new aws.ec2.RouteTableAssociation(`${this.name}-public-rt-assoc`, {
-            routeTableId: routeTable.id,
-            subnetId: pubSubnet.id,
+                                                                    /* FIXME */
         }, {
             parent: routeTable
         });
 
-        this.vpcId = vpc.id;
-        this.subnetId = pubSubnet.id;
+        this.vpcId = ;                                              /* FIXME */
 
     }
 }
