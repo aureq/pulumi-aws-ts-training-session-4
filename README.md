@@ -38,10 +38,13 @@ For this part of the exercise, using Component Resource is _NOT_ required.
    * the VMs hostname
    * the SSH private key as secret
    * the SSH public key
+6. Set tags on your VMs but apply the tags on 1 VM at a time when running `pulumi up` (no code or config changes between updates)
+   1. Requires inspecting the stack state file
+   2. Requires a specific `pulumi up` option (see --help)
 
 ### Bonus/Challenges ###
 
-10. Use Pulumi runtime functions
+10. Use Pulumi runtime functions to determine the current stack name
 11. Your component resource doesn't rely on pulumi.Config()
 12. Your component resource args use strong typing
 
