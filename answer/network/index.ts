@@ -12,7 +12,6 @@ export = async () => {
     const availabilityZones: Array<string> = config.requireObject("availabilityZones");
     const cidrBlocks: Array<string> = config.requireObject("cidrBlocks");
     const subnetMasks: Array<string> = config.requireObject("netmasks");
-    const subnetCount = config.requireNumber("subnetCount");
 
     const publicSubnets: pulumi.Output<string>[] = [];
     const vpcs: pulumi.Output<string>[] = [];
@@ -32,7 +31,6 @@ export = async () => {
         });
 
         const vpc = new crVpc.Vpc(`${regionName}-vpc-component`, {
-            subnetCount: subnetCount,
             cidrBlock: cidrBlock,
             subnetMask: subnetMask,
             ownerEmail: ownerEmail,

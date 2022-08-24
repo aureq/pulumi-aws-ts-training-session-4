@@ -7,7 +7,6 @@ interface VpcArgs {
     ownerEmail: pulumi.Input<string>,
     cidrBlock: pulumi.Input<string>,
     subnetMask: pulumi.Input<string>,
-    subnetCount: Number,
     availabilityZone: pulumi.Input<string>,
 }
 
